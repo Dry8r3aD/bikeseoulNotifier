@@ -42,7 +42,7 @@ RIGHT_LONG=126.938881
 #stationLongitude	:	126.929253
 
 
-avail_station=[]
+avail_station = []
 
 def append_available_station( station ):
     # 여의도에 있고, 사용이 가능한 자전거가 있다면 임시 dict에 필요한 정보만
@@ -131,6 +131,8 @@ def handle_command(command, channel):
         channel=channel,
         text=response or default_response
     )
+
+    avail_station.clear()
 
 if __name__ == "__main__":
     if slack_client.rtm_connect(with_team_state=False):
